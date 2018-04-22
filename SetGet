@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+ 
+class boy{
+public:
+	void setx(int);
+	int getx();
+ 
+private:
+	int x;
+};
+void boy::setx(int x){
+	this->x = x;
+}
+int boy::getx(){
+	return x;
+}
+int main(){
+	boy dan = boy();
+	dan.setx(5);
+	cout << dan.getx() << endl;
+	return 0;
+}
