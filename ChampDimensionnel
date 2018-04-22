@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+ 
+#define ANZ 5
+ 
+bool feld[ANZ][ANZ] = { {true, false, false, false, false},
+						{false, false, true, false, false},
+						{false, false, false, false, true},
+						{false, false, false, false, false},
+//						{false, false, false, false, false},
+						{false, false, false, false, false}};
+ 
+bool pruefe(){
+	//gibt "true" zurück, wenn die Damen gültig auf dem Feld stehen, sonst "false"
+	//Die Zeilen werden nicht überprüft, da die Logik später dafür sorgt dass nie 2 Damen in einer Zeile stehen können.
+	//Spalten prüfen
+	for(int spalte=0; spalte<ANZ; ++spalte){
+		int summe = 0;
+		//Innerhalb der Spalte, muss ich über mein Zeile durchlaufen
+		for(int zeile=0; zeile<ANZ; ++zeile){
+			summe += feld[zeile][spalte];
+		}
+		if(summe > 1){
+			return false;
+		}
+	}
+	//Diagonalen
+	return true;
+}
+ 
+int main(void) {
+	cout << pruefe() << endl;
+	return 0;
+}
