@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+ 
+class Lehrer {
+private:
+	string name;
+public:
+	Lehrer(string name) : name(name){}
+};
+class Schule {
+private:
+	Lehrer* lehrer;
+public:
+	Schule(Lehrer* m) : lehrer(m){}
+};
+int main(void){
+	Lehrer* bob = new Lehrer("Bob");
+	{
+		Schule schule(bob);
+	}
+// Lehrer existe toujours alors que
+// Schule a été détruit
+	delete bob;	
+}
