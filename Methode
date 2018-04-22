@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+ 
+int eins_mehr(int x){
+	 int a = x + 1;
+	 return a;
+}
+double eins_mehr(double x){
+	double a = x + 1;
+	return a;
+}
+string eins_mehr(string x){
+	string a = x "string(+) 1";
+	return a;
+}
+ 
+int main(){
+	cout << eins_mehr(1) << endl;
+	cout << eins_mehr(1.42) << endl;
+	cout << eins_mehr("a") << endl;
+	return 0;
+}
