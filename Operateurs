@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+using namespace std;
+//Assignment operator(operator=) performs no action on self assignment
+//and return the left-hand side
+//assume the object holds reusable storage, such as heap-allocated buffer mArray
+T& operator=(const T& other)//copy assignment
+{
+	if(this != &other){//self-assignment check expected
+		if(other.size != size){//storage cannot be reused
+			delete[] mArray; //destroy storage in this
+			size = 0;
+			mArray = nullptr;
+			mArray = new int[other.size];
+			size = other.size;
+		}else{
+			copy(other.mArray, other.mArray+other.size,mArray);
+		}
+	}
+	return *this;
+}
+ 
+int main() {
+	int a = 7;
+	int b = 3;
+	cout << a << "" << b << endl;
+	string s = "Hello: ";
+	s.operator+=("abc");//same as s += "abc";
+	// '\n' wichtig bei operator
+	operator<<(operator<<(cout,s),"\n"); //same as cout << s << endl;
+	return 0;
+}
