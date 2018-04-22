@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+ 
+class Lok{
+public:
+	string farbe;
+	Lok(string);
+};
+Lok::Lok(string farbe){
+	this->farbe = farbe;
+};
+ 
+class Opa{
+public:
+	Opa(int);
+	int alter;
+	Lok *besitz[10];
+};
+ 
+Opa::Opa(int alter){
+	this->alter = alter;
+};
+ 
+int main() {
+	Lok mein("rote");
+	Lok mein1("schwarz");
+	Opa dein(88);
+	dein.besitz[0] = &mein;
+	return 0;
+}
