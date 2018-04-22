@@ -1,0 +1,176 @@
+#include <iostream> 
+#include <algorithm> 
+#include <math.h> 
+using namespace std; 
+ 
+class Punkt 
+{ 
+public: 
+    Punkt(){
+    	X = Y = 0;
+    } 
+    void SetX(int x){
+    	X = x; 
+    } 
+    void SetY(int y){
+    	Y = y; 
+    } 
+    int GetX()const{
+    	return X;
+    } 
+    int GetY()const{ 
+    	return Y;
+    } 
+ 
+private: 
+    int X; 
+    int Y; 
+}; 
+ 
+class Kreis 
+{ 
+public: 
+    virtual void flaeche(); 
+    Kreis(){} 
+    ~Kreis(){} 
+ 
+    float GetRadius() const { 
+    	return Radius; 
+    } 
+    void SetRadius(int radius) {
+    	Radius = radius;
+    } 
+ 
+    Punkt GetMittelpunkt() const { 
+    	return Mittelpunkt; 
+    } 
+    void SetMittelpunkt(Punkt Location) {
+    	Mittelpunkt = Location;
+    } 
+ 
+private: 
+    Punkt Mittelpunkt; 
+    float Radius; 
+}; 
+ 
+void Kreis::flaeche() 
+{ 
+    cout << "Fläche des Kreises wird berechnet: " << ((Radius)*(Radius))*3.1415 << endl; 
+} 
+//-----------------------------
+class Rechteck 
+{ 
+public: 
+    virtual void flaeche(); 
+    virtual void distanz(); 
+    Rechteck(int top, int left, int bottom, int right){
+    	Top = top; 
+		Left = left; 
+		Bottom = bottom; 
+		Right = right; 
+ 
+		UpperLeft.SetX(left); 
+		UpperLeft.SetY(top); 
+ 
+		UpperRight.SetX(right); 
+		UpperRight.SetY(top); 
+ 
+		LowerLeft.SetX(left); 
+		LowerLeft.SetY(bottom); 
+ 
+		LowerRight.SetX(right); 
+		LowerRight.SetY(bottom); 
+    }; 
+    ~Rechteck() {} 
+ 
+    int GetTop() const { 
+    	return Top; 
+    } 
+    int GetLeft() const { 
+    	return Left; 
+    } 
+    int GetBottom() const { 
+    	return Bottom; 
+    } 
+    int GetRight() const { 
+    	return Right; 
+    } 
+ 
+    Punkt GetUpperLeft() const { 
+    	return UpperLeft; 
+    } 
+    Punkt GetLowerLeft() const { 
+    	return LowerLeft; 
+    } 
+    Punkt GetUpperRight() const { 
+    	return UpperRight; 
+    } 
+    Punkt GetLowerRight() const { 
+    	return LowerRight; 
+    } 
+ 
+    void SetUpperLeft(Punkt Location) {
+    	UpperLeft = Location;
+    } 
+    void SetLowerLeft(Punkt Location) {
+    	LowerLeft = Location;
+    } 
+    void SetUpperRight(Punkt Location) {
+    	UpperRight = Location;
+    } 
+    void SetLowerRight(Punkt Location) {
+    	LowerRight = Location;
+    } 
+ 
+    void SetTop(int top) { 
+    	Top = top; 
+    } 
+    void SetLeft (int left) { 
+    	Left = left; 
+    } 
+    void SetBottom (int bottom) { 
+    	Bottom = bottom; 
+    } 
+    void SetRight (int right) { 
+    	Right = right; 
+    } 
+ 
+private: 
+//  Point p1; 
+//  Point p2; 
+    Punkt UpperLeft; 
+    Punkt UpperRight; 
+    Punkt LowerLeft; 
+    Punkt LowerRight; 
+    int Top; 
+    int Left; 
+    int Bottom; 
+    int Right; 
+}; 
+ 
+void Rechteck::flaeche() 
+{ 
+    int Width = Right - Left; 
+    int Height = Top  - Bottom; 
+    cout << "Fläche des Rechtecks wird berechet: " << Width * Height << endl; 
+} 
+ 
+void Rechteck::distanz() 
+{ 
+    int Width = Right - Left; 
+    int Height = Top  - Bottom; 
+    cout << "Distanz berechen im Rechteck: " << (sqrt((Width*Width) + (Height*Height))) << endl; 
+} 
+ 
+int main() {
+	Kreis* kreis;
+	kreis = new Kreis();
+	kreis->SetRadius(2);
+	kreis->flaeche();
+ 
+	Rechteck* rechteck;
+	rechteck = new Rechteck(1,2,3,4);
+	rechteck->flaeche();
+	rechteck->distanz();
+	return 0;
+}
