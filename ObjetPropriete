@@ -1,0 +1,23 @@
+#include <iostream>
+#include "Sally.h"
+using namespace std;
+ 
+Sally::Sally(){}//*
+ 
+Sally::Sally(int a){
+	num = a;//assign Sally-object to the property of num
+}
+Sally Sally::operator+(Sally aso){
+	Sally brandNew;//create brandNew Sally-Object
+	brandNew.num = num + aso.num;//a number value to the branNew Sally-Object
+	return brandNew;//return brandNew Sally-Object
+}
+int main() {
+	Sally a(34);//Sally-Object with number 34
+	Sally b(21);
+	Sally c;//*Blank Sally-Object
+	c=a+b;
+	cout << c.num << endl;
+ 
+	return 0;
+}
