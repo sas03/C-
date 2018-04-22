@@ -1,0 +1,16 @@
+#include <stdio.h>
+ 
+int main(void) {
+	int n = 0;
+	int *zeiger = malloc(sizeof(int));
+//	int *zeiger1 = malloc(sizeof(int));
+//	*zeiger = 7;
+	for(n = 0; n < 3; n++){
+		zeiger[n] = n+1;
+		printf("%d\n",zeiger[n]);
+	}
+//	*zeiger1[3] = {1,2,3};
+//	printf("%d",*zeiger1[0]);
+ 
+	return 0;
+}
