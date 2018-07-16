@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int nbjoueur;
+	int nbmystere;
+	
+	nbmystere = 108;
+	
+	cout << "Entrez une tentative : ";
+	cin >> nbjoueur;
+	
+	if(nbjoueur == nbmystere){
+		cout << "Felicitations ! " 
+		     << "Vous avez trouve le nombre mystere !"
+		     << endl;
+	}
+
+	else{
+		if(nbjoueur < nbmystere){
+		cout << "Plus" << endl;
+		}
+		else{
+			cout << "Moins" << endl;
+		}
+	}
+	return 0;
+}
